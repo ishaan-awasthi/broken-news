@@ -1,4 +1,4 @@
 atproto
-datetime
 openai
 python-dotenv
+requests
