@@ -1,0 +1,7 @@
+atproto
+base64
+datetime
+openai
+os
+requests
+python-dotenv

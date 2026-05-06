@@ -1,0 +1,26 @@
+name: Daily Bluesky Post
+
+on:
+  schedule:
+    - cron: '* * * * *'  # 3pm UTC = 8am PST
+  workflow_dispatch:        # manual trigger button
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: python main.py
