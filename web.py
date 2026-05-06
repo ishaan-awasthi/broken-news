@@ -23,7 +23,7 @@ def make_post(text, image_path):
             images=[
                 models.AppBskyEmbedImages.Image(
                     image=upload.blob,
-                    alt="AI generated person",
+                    alt=text,
                 )
             ]
         )
